@@ -1,5 +1,7 @@
 set -ex
 
+export CARGO_INCREMENTAL=0
+
 if [ "$DOCS" = "yes" ]; then
     cargo clean
     cargo doc --all --no-deps
@@ -12,4 +14,17 @@ else
     cargo build
     cargo build --tests
     cargo build --examples
+
+    cd rustacuda_core
+    cargo build
+    cargo build --tests
+    cargo build --examples
+    cd ..
+
+    cd rustacuda_derive
+    cargo build
+    cargo build --tests
+    cargo build --examples
+    cd ..
+
 fi

@@ -21,7 +21,7 @@ use core::num::*;
 /// #[derive(Clone, DeviceCopy)]
 /// struct MyStruct(u64);
 ///
-/// # fn main() {}
+/// # fn main () {}
 /// ```
 ///
 /// This is safe because the `DeviceCopy` derive macro will check that all fields of the struct,
@@ -33,7 +33,7 @@ use core::num::*;
 /// # extern crate rustacuda;
 /// #[derive(Clone, DeviceCopy)]
 /// struct MyStruct(Vec<u64>);
-/// # fn main() {}
+/// # fn main () {}
 /// ```
 ///
 /// You can also implement `DeviceCopy` unsafely:
@@ -45,6 +45,7 @@ use core::num::*;
 /// struct MyStruct(u64);
 ///
 /// unsafe impl DeviceCopy for MyStruct { }
+/// # fn main () {}
 /// ```
 ///
 /// ## What is the difference between `DeviceCopy` and `Copy`?
